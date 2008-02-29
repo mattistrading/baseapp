@@ -1,5 +1,5 @@
 class Setting < ActiveRecord::Base
-  validates_presence_of :label
+  validates_presence_of :label, :value
   validates_uniqueness_of :label
   validates_uniqueness_of :identifier
   
@@ -23,6 +23,6 @@ class Setting < ActiveRecord::Base
       setting = nil
     end
     
-    setting.nil? ? "" : setting.value
+    setting.nil? ? nil : setting.value
   end
 end
